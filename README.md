@@ -1,6 +1,6 @@
 # React + Vite
 
-T# Team Profiles
+# Team Profiles
 
 Учебный React-проект: карточки профилей (добавление, удаление, форма).
 
