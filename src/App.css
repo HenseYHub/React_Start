@@ -99,3 +99,20 @@ article {
 .profile-card button:hover {
   background-color: darkred;
 }
+
+.error {
+  color: #f87171;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
+.add-form button:disabled {
+  opacity: .5;
+  cursor :not-allowed;
+}
+
+
+.profile-card.important {
+  box-shadow: 0 0 0 2px gold;
+}
