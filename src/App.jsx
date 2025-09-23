@@ -14,8 +14,8 @@ function App() {
     { id: 1, name: "Pasha", role: "Developer", avatar: pashaAvatar },
     { id: 2, name: "Lera", role: "2D Designer", avatar: leraAvatar },
     { id: 3, name: "Duck", role: "Business Duck", avatar: duckAvatar },
-    {id: 4, name: "Shibo", role: "Важный", avatar: shiboAvatar },
-    {id: 5, name: "Олень", role: "Директор", avatar: olenAvatar }
+    {id: 4, name: "Shibo", role: "Manager", avatar: shiboAvatar },
+    {id: 5, name: "Deer", role: "Director", avatar: olenAvatar }
   ]);
 
   const deleteProfile = (id) => {
@@ -26,6 +26,18 @@ function App() {
   const [newName, setNewName] = useState("");
   const [newRole, setNewRole] = useState("");
   const [isImportant, setImportant] = useState(false);
+  const [editingId, setEditingId] = useState(null);
+
+  const startEdit = (id) => setEditingId(id);
+const cancelEdit = () => setEditingId(null);
+
+const saveEdit = (id, fields) => {
+  // fields = { name, role, important }
+  setProfiles(prev =>
+    prev.map(p => p.id === id ? { ...p, ...fields } : p)
+  );
+  setEditingId(null);
+  };
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -62,6 +74,10 @@ function App() {
           role={profile.role}
           avatar={profile.avatar}
           important={profile.important}
+          isEditing={editingId === profile.id}
+          onEdit={() => startEdit(profile.id)}
+          onCancel={cancelEdit}
+          onSave={(fields) => saveEdit(profile.id, fields)}
           onDelete={() => deleteProfile(profile.id)}
           />
         ))}
@@ -80,8 +96,8 @@ function App() {
           <option value="Developer">Developer</option>
           <option value="2D Designer">2D Designer</option>
           <option value="Business Duck">Business Duck</option>
-          <option value="Manager">Важный</option>
-          <option value="QA">Директор</option>
+          <option value="Manager">Manager</option>
+          <option value="QA">QA</option>
         </select>
 
         <label>
