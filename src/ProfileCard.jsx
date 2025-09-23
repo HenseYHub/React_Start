@@ -62,7 +62,7 @@ function ProfileCard({id, name, role, avatar, important, isEditing, onEdit, onCa
 
     return (
         <article className={`profile-card ${important ? "important" : ""}`}>
-            <img src={avatar} alt={name} />"
+            <img src={avatar} alt={name} />
             <h2>{name} {important && "⭐"}</h2>
             <p>{role}</p>
             <div className="actions">
