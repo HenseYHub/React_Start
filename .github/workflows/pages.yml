@@ -25,10 +25,7 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: cp dist/index.html dist/404.html
-      # диагностика: убедимся, что в dist правильный index.html
       - run: |
-          echo "---- dist listing ----"
-          ls -la dist
           echo "---- first lines of dist/index.html ----"
           sed -n '1,40p' dist/index.html
       - uses: actions/upload-pages-artifact@v3
