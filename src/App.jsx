@@ -4,7 +4,7 @@ import ProfileCard from './ProfileCard'
 import pashaAvatar from './assets/ItsMe.jpg'
 import leraAvatar  from './assets/ItsLera.jpg'
 import duckAvatar  from './assets/Duck.png'
-import shiboAvatar  from './assets/Shibo.png'
+import shiboAvatar  from './assets/shibo.png'
 import olenAvatar from "./assets/Olen.jpg";
 import newUserAvatar from "./assets/New_User.jpg";
 
